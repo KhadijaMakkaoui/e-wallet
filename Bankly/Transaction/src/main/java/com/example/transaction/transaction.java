@@ -20,7 +20,7 @@ public class transaction {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String ref;
-    private String amount;
+    private float amount;
     private String wallet;
     private String type;
 
