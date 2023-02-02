@@ -19,10 +19,10 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="Transaction" options="-parameters" />
-      <module name="User" options="-parameters" />
-      <module name="Wallet" options="-parameters" />
-      <module name="discovery-server" options="-parameters" />
+      <module name="Transaction" options="" />
+      <module name="User" options="" />
+      <module name="Wallet" options="" />
+      <module name="discovery-server" options="" />
     </option>
   </component>
 </project>
