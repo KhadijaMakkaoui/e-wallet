@@ -20,6 +20,6 @@ public class wallet {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     private String ref;
-    private String balance;
+    private float balance;
     private String owner;
 }
