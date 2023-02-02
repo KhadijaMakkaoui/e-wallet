@@ -9,4 +9,14 @@
     <artifactId>discovery-server</artifactId>
     <name>Archetype - discovery-server</name>
     <url>http://maven.apache.org</url>
+    <dependencies>
+
+
+        <dependency>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-eureka-server</artifactId>
+            <version>1.4.7.RELEASE</version>
+        </dependency>
+
+    </dependencies>
 </project>

@@ -19,7 +19,7 @@
     </modules>
     <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
+    </properties>
 
   <dependencies>
     <dependency>
@@ -28,5 +28,13 @@
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-dependencies</artifactId>
+      <version>2022.0.1</version>
+      <type>pom</type>
+      <scope>import</scope>
+    </dependency>
+
   </dependencies>
 </project>
