@@ -13,6 +13,7 @@
         <module name="User" />
         <module name="discovery-server" />
         <module name="Transaction" />
+        <module name="test" />
         <module name="Wallet" />
       </profile>
     </annotationProcessing>
@@ -23,6 +24,7 @@
       <module name="User" options="" />
       <module name="Wallet" options="" />
       <module name="discovery-server" options="" />
+      <module name="test" options="" />
     </option>
   </component>
 </project>

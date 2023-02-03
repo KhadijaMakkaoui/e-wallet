@@ -1,15 +1,13 @@
-package com.example.transaction;
+package org.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-@SpringBootApplication
 @EnableEurekaClient
-public class TransactionApplication {
-
+@SpringBootApplication
+public class testApplication {
     public static void main(String[] args) {
-        SpringApplication.run(TransactionApplication.class, args);
+        SpringApplication.run(testApplication.class, args);
     }
-
 }
