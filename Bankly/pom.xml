@@ -18,6 +18,7 @@
     <modules>
         <module>discovery-server</module>
       <module>test</module>
+        <module>api-gateway</module>
     </modules>
   <properties>
   <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
