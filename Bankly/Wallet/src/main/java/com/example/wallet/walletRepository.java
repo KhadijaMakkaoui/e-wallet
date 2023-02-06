@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface walletRepository extends JpaRepository<wallet, Long> {
+    wallet findByRef(String ref);
 }

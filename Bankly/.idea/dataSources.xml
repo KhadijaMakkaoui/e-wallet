@@ -8,5 +8,12 @@
       <jdbc-url>jdbc:postgresql://localhost:5432/bankly-wallet</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
+    <data-source source="LOCAL" name="bankly-transaction@localhost" uuid="d6149e97-d69b-432e-85aa-c462536b3a7a">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5432/bankly-transaction</jdbc-url>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
   </component>
 </project>
