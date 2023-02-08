@@ -1,0 +1,20 @@
+
+g	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(Ûãâ“ÿÿÿÿÿ
+œ
+java:S1186="€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ıâÌ•úÿÿÿÿ
+h
+java:S6204"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(â¥
+T
+java:S1611"9Remove the parentheses around the "transaction" parameter(­­¤Òùÿÿÿÿ
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(èıî½øÿÿÿÿ
+S	java:S106"9Replace this use of System.out or System.err by a logger.(¯ç÷³ùÿÿÿÿ
+V	java:S125"<This block of commented-out lines of code should be removed.(«î©Ôÿÿÿÿÿ
+V	java:S125!"<This block of commented-out lines of code should be removed.(Ò…·ñøÿÿÿÿ
+Q	java:S125#"<This block of commented-out lines of code should be removed.(ê¤˜Ë
+V	java:S1254"<This block of commented-out lines of code should be removed.(áÿèˆıÿÿÿÿ
+N	java:S1067"9Replace this use of System.out or System.err by a logger.(Úµë
+N	java:S106:"9Replace this use of System.out or System.err by a logger.(º¨‰
+M
+java:S1172="2Remove this unused method parameter "transaction".(ıâÌ•úÿÿÿÿ
+P
+java:S1144="5Remove this unused private "debitTransaction" method.(ıâÌ•úÿÿÿÿ
