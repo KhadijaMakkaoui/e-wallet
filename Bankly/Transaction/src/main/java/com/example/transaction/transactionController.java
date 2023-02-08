@@ -1,6 +1,8 @@
 package com.example.transaction;
 
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,8 +20,14 @@ public class transactionController {
         return transactionService.getAll();
     }
     @PostMapping("/credit")
+    @ResponseStatus(HttpStatus.CREATED)
+    //fallback executed when failure
+    @CircuitBreaker(name="transaction-circuitbreaker", fallbackMethod = "fallback")
     public void CreditTransaction(@RequestBody transaction transaction) {
         transactionService.TransactionOperation(transaction);
     }
 
+    public String fallback(transaction transaction, RuntimeException e) {
+        return "Sorry,something went wrong. Please try again later";
+    }
 }

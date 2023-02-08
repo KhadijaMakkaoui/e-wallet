@@ -3,10 +3,6 @@
 MTransaction/src/main/java/com/example/transaction/config/WebClientConfig.java,0\a\0ad211898a6c56c4a2bb8333531bd4bb0590c56e
 y
 ITransaction/src/main/java/com/example/transaction/transactionService.java,8\e\8e7ec688f202681eb050e862218772f84e034369
-|
-LTransaction/src/main/java/com/example/transaction/transactionController.java,6\f\6fccdeff7dc114ed8309824dc7ed7dd980596f8a
-p
-@api-gateway/src/main/java/org/example/ApiGatewayApplication.java,2\b\2bf440fb147ad91d28b0376702c3dec3a231d926
 j
 :Wallet/src/main/java/com/example/wallet/walletService.java,3\6\364c9a8ce99e0b8eae0072179bfbef72490f14f9
 m
