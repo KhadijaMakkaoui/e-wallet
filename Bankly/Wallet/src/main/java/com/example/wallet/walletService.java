@@ -22,12 +22,7 @@ public class walletService {
                 .map((wallet) -> mapper.mapToDTO(wallet))
                 .collect(toList());
     }
-    /*@SneakyThrows*/
     public wallet checkBallance(String ref, float amount) {
-       /* log.info("Wait started");
-            Thread.sleep(10000);
-
-        log.info("Wait ended");*/
         wallet wallet = walletRepository.findByRef(ref);
         if (wallet.getBalance()>=amount) {
             return wallet;
