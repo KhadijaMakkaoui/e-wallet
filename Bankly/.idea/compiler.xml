@@ -10,12 +10,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="api-gateway" />
         <module name="User" />
         <module name="discovery-server" />
         <module name="Transaction" />
         <module name="test" />
+        <module name="feignClient" />
         <module name="Wallet" />
+        <module name="api-gateway" />
       </profile>
     </annotationProcessing>
   </component>
