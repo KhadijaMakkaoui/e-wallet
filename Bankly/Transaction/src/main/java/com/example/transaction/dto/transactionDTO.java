@@ -1,4 +1,4 @@
-package com.example.transaction;
+package com.example.transaction.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

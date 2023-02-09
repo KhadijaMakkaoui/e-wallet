@@ -1,0 +1,16 @@
+
+b	java:S101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ŞÕ³ü
+h	java:S100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(§Ü×Éÿÿÿÿÿ
+c	java:S100 "NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªµß–
+V
+java:S4684 "@Replace this persistent entity with a simple POJO or DTO object.(ªµß–
+N
+java:S1172$"9Remove these unused method parameters "transaction", "e".(êÇñ}
+y
+java:S1128"\Remove this unused import 'io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker'.(›èÌÇ8•Óõˆã0
+l
+java:S1128"JRemove this unused import 'io.github.resilience4j.retry.annotation.Retry'.(Ä³ß¾úÿÿÿÿ8–Óõˆã0
+x
+java:S1128"VRemove this unused import 'io.github.resilience4j.timelimiter.annotation.TimeLimiter'.(–Üòøÿÿÿÿ8—Óõˆã0
+\
+java:S1128"?Remove this unused import 'java.util.stream.Collectors.toList'.(ã‚ºÎ8‚ÿà„ã0

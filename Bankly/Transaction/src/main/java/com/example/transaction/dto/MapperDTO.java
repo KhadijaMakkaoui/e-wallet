@@ -1,5 +1,6 @@
-package com.example.transaction;
+package com.example.transaction.dto;
 
+import com.example.transaction.transaction;
 import org.springframework.stereotype.Component;
 
 @Component
