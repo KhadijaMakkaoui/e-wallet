@@ -1,2 +1,0 @@
-# e-wallet
-Microservices application
