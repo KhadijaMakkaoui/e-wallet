@@ -10,9 +10,8 @@ public class MapperDTO {
         String ref = transaction.getRef();
         float amount = transaction.getAmount();
         String type = transaction.getType();
-        String wallet = transaction.getWallet();
 
-        return new transactionDTO(id, ref, amount, wallet, type);
+        return new transactionDTO(id, ref, amount, type);
     }
 
 }

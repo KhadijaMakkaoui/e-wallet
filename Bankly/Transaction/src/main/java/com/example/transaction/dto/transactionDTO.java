@@ -11,7 +11,6 @@ public class transactionDTO {
     public Long id;
     public String ref;
     public float amount;
-    public String wallet;
     public String type;
 
 
