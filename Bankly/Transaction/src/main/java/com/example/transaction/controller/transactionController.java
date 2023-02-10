@@ -1,6 +1,7 @@
-package com.example.transaction;
+package com.example.transaction.controller;
 
 import com.example.transaction.dto.transactionDTO;
+import com.example.transaction.entity.transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;

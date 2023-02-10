@@ -4,7 +4,7 @@ import com.example.transaction.APITransaction;
 import com.example.transaction.dto.MapperDTO;
 import com.example.transaction.dto.transactionDTO;
 import com.example.transaction.dto.walletDto;
-import com.example.transaction.transaction;
+import com.example.transaction.entity.transaction;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 /*

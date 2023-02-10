@@ -1,5 +1,6 @@
-package com.example.wallet;
+package com.example.wallet.dto;
 
+import com.example.wallet.entity.wallet;
 import org.springframework.stereotype.Component;
 
 @Component

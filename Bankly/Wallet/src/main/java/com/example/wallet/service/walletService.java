@@ -1,9 +1,10 @@
-package com.example.wallet;
+package com.example.wallet.service;
 
+import com.example.wallet.dto.MapperDTO;
+import com.example.wallet.entity.wallet;
+import com.example.wallet.dto.walletDTO;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -14,7 +15,7 @@ import static java.util.stream.Collectors.toList;
 @RequiredArgsConstructor
 @Slf4j
 public class walletService {
-    private final walletRepository walletRepository;
+    private final com.example.wallet.repository.walletRepository walletRepository;
     private final MapperDTO mapper;
     public List<walletDTO> getAll() {
         return walletRepository.findAll()

@@ -1,4 +1,4 @@
-package com.example.wallet;
+package com.example.wallet.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

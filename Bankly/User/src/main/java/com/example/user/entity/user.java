@@ -1,4 +1,4 @@
-package com.example.user;
+package com.example.user.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -19,9 +22,17 @@ public class user {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
+    @NotEmpty
+    @Size(min = 3, max = 20)
     private String nom;
+    @NotEmpty
+    @Size(min = 3, max = 20)
     private String prenom;
+    @NotEmpty
+    @Email
     private String email;
+    @NotEmpty
+    @Size(min = 5, max = 20)
     private String password;
 
 }
