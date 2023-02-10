@@ -26,6 +26,6 @@ public class wallet {
     private String ref;
     @NotEmpty
     private float balance;
-
-    private String owner;
+    @NotEmpty
+    private Long user_id;
 }
