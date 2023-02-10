@@ -3,10 +3,7 @@ package com.example.wallet.controller;
 import com.example.wallet.dto.walletDTO;
 import com.example.wallet.entity.wallet;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,6 +22,10 @@ public class walletController {
     @GetMapping("/{ref}/{amount}")
     public wallet checkBallance(@PathVariable String ref, @PathVariable float amount) {
         return walletService.checkBallance(ref, amount);
+    }
+    @PostMapping("/{id_user}")
+    public walletDTO createWallet( @PathVariable Long id_user) {
+        return walletService.createWallet( id_user);
     }
 
 
