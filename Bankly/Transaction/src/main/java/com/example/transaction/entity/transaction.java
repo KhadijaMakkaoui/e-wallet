@@ -1,13 +1,12 @@
 package com.example.transaction.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Size;
+import java.util.Date;
 
 @Getter
 @Setter
@@ -26,5 +25,8 @@ public class transaction {
     private float amount;
     @NotEmpty
     private String type;
+    @NotEmpty
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private Date date;
 
 }

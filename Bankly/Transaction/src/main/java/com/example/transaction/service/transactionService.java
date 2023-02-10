@@ -11,6 +11,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 */
 
+import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
@@ -46,16 +48,6 @@ public class transactionService {
 
 
     public transactionDTO creditTransaction(transaction transaction) {
-        //call wellet service to credit the amount
-       /* walletDto result = webClientBuilder.build().get()
-                .uri("http://Wallet/api/v1/wallet/AA11/"+transaction.getAmount())
-                        *//*uriBuilder -> uriBuilder
-                                .queryParam("ref", "AA11")
-                                .queryParam("amount", transaction.getAmount())
-                                .build())*//*
-                .retrieve()
-                .bodyToMono(walletDto.class)
-                .block();*/
 
         walletDto result = apiTransaction.checkBallance("AA11", transaction.getAmount());
 /*
@@ -63,6 +55,7 @@ public class transactionService {
 */
         if (result!=null) {
             System.out.println("Transaction succeded");
+            transaction.setDate(Timestamp.valueOf(LocalDateTime.now()));
             return mapper.mapToDTO(transactionRepository.save(transaction));
         }else {
             System.out.println("Transaction failed");
