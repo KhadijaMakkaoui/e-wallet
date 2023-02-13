@@ -11,6 +11,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class UserService {
     @Autowired
@@ -33,6 +35,13 @@ public class UserService {
 
         return mapperDTO.mapToDTO(userRepository.save(user));
 
+    }
+
+    public List<UserDTO> getAll() {
+        return userRepository.findAll()
+                .stream()
+                .map((user) -> mapperDTO.mapToDTO(user))
+                .collect(java.util.stream.Collectors.toList());
     }
 
    /* public UserDetails findByEmail(String email) {
