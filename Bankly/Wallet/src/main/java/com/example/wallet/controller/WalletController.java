@@ -29,5 +29,9 @@ public class WalletController {
         return walletService.createWallet( walletDto.getUserId());
     }
 
+    @PutMapping("{id}")
+    public WalletDTO updateWallet(@PathVariable("id") Long idWallet,@RequestBody WalletDTO walletDTO) {
+        return walletService.updateBalance( idWallet,walletDTO);
+    }
 
 }

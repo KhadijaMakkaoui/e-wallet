@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import static java.util.stream.Collectors.toList;
@@ -21,6 +22,7 @@ public class WalletService {
     private final WalletRepository walletRepository;
 
     private final MapperDTO mapper;
+
 @Autowired
     private WalletDTO walletdto;
 
@@ -51,5 +53,16 @@ public class WalletService {
         wallet.setRef(UUID.randomUUID().toString());
         walletdto=mapper.mapToDTO(walletRepository.save(wallet));
         return walletdto;
+    }
+    public WalletDTO updateBalance(Long id,WalletDTO walletDTO) {
+       Wallet wallet=walletRepository.findById(id).get();
+        if(wallet!=null){
+            wallet.setBalance(walletDTO.getBalance());
+           return mapper.mapToDTO(walletRepository.save(wallet));
+        }
+        else {
+            return null;
+        }
+
     }
 }
