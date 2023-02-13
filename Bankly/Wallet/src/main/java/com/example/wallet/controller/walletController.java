@@ -1,6 +1,6 @@
 package com.example.wallet.controller;
 
-import com.example.wallet.dto.walletDTO;
+import com.example.wallet.dto.WalletDTO;
 import com.example.wallet.entity.wallet;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -15,7 +15,7 @@ public class walletController {
 
 
     @GetMapping
-    public List<walletDTO> ListWallets() {
+    public List<WalletDTO> ListWallets() {
         return walletService.getAll();
 
     }
@@ -23,9 +23,9 @@ public class walletController {
     public wallet checkBallance(@PathVariable String ref, @PathVariable float amount) {
         return walletService.checkBallance(ref, amount);
     }
-    @PostMapping("/{id_user}")
-    public walletDTO createWallet( @PathVariable Long id_user) {
-        return walletService.createWallet( id_user);
+    @PostMapping
+    public WalletDTO createWallet(@RequestBody WalletDTO walletDto) {
+        return walletService.createWallet( walletDto.getUser_id());
     }
 
 

@@ -22,10 +22,7 @@ public class wallet {
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     @NotEmpty
-    @Size(min = 3, max = 20)
     private String ref;
-    @NotEmpty
     private float balance;
-    @NotEmpty
     private Long user_id;
 }
