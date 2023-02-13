@@ -10,8 +10,9 @@ public class MapperDTO {
         String prenom = user.getPrenom();
         String email = user.getEmail();
         String password = user.getPassword();
+        Long wallet_id = user.getWallet_id();
 
-        return new UserDTO(nom, prenom, email, password);
+        return new UserDTO(nom, prenom, email, password,wallet_id);
     }
 
 }

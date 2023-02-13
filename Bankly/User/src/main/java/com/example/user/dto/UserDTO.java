@@ -12,6 +12,7 @@ public class UserDTO {
     private String prenom;
     private String email;
     private String password;
+    private Long wallet_id;
 
 
 }
