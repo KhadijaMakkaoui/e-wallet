@@ -35,4 +35,6 @@ public class User {
     @Size(min = 5, max = 20)
     private String password;
 
+    private Long wallet_id;
+
 }

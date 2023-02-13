@@ -1,5 +1,6 @@
 package com.example.user.controller;
 
+import com.example.user.dto.UserDTO;
 import com.example.user.entity.User;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,8 +16,7 @@ import com.example.user.service.UserService;
 public class UserController {
     private final UserService userService;
     @PostMapping("/register")
-    public ResponseEntity<String> register(@RequestBody User user){
-        userService.register(user);
-        return ResponseEntity.ok("User registered successfully");
+    public UserDTO register(@RequestBody User user){
+        return userService.register(user);
     }
 }
