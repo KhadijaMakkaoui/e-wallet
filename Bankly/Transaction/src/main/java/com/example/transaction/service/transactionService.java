@@ -1,6 +1,6 @@
 package com.example.transaction.service;
 
-import com.example.transaction.APITransaction;
+import com.example.transaction.APIWallet;
 import com.example.transaction.dto.MapperDTO;
 import com.example.transaction.dto.transactionDTO;
 import com.example.transaction.dto.walletDto;
@@ -25,7 +25,7 @@ public class transactionService {
     @Autowired
     private MapperDTO mapper;
     @Autowired
-    private APITransaction apiTransaction;
+    private APIWallet apiWallet;
    /* @Autowired
     private WebClient.Builder webClientBuilder;
 */
@@ -51,7 +51,8 @@ public class transactionService {
 
     public transactionDTO creditTransaction(transaction transaction) {
         //TODO: make wallet ref dynamic
-        walletDto result = apiTransaction.checkBallance("AA11", transaction.getAmount());
+
+        walletDto result = apiWallet.checkBallance("AA11", transaction.getAmount());
 
         if (result!=null) {
             System.out.println("Transaction succeded");

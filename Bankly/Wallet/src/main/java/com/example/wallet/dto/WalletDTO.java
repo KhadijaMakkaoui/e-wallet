@@ -15,7 +15,7 @@ public class WalletDTO {
     public Long id;
     public String ref;
     public float balance;
-    public Long user_id;
+    public Long userId;
 
 
 }

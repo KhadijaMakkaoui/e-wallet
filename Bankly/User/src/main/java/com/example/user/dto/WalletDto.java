@@ -13,7 +13,7 @@ public class WalletDto {
     private Long id;
     private String ref;
     private float balance;
-    private Long user_id;
+    private Long userId;
 
 
 

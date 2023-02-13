@@ -13,9 +13,9 @@ public class MapperDTO {
         float amount = transaction.getAmount();
         String type = transaction.getType();
         Date date = transaction.getDate();
-        Long wallet_id = transaction.getWallet_id();
+        Long user_id = transaction.getUser_id();
 
-        return new transactionDTO(id, ref, amount, type, date, wallet_id);
+        return new transactionDTO(id, ref, amount, type, date, user_id);
     }
 
 }

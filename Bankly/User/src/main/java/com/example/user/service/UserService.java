@@ -28,7 +28,7 @@ public class UserService {
         userRepository.save(user);
         //create wallet for registred user
         walletDto=new WalletDto();
-        walletDto.setUser_id(user.getId());
+        walletDto.setUserId(user.getId());
         walletDto= apiWallet.createWallet(walletDto);
         if(walletDto!=null)
             user.setWallet_id(walletDto.getId());

@@ -1,0 +1,8 @@
+
+z
+java:S1450"XRemove the "walletDto" field and declare it as a local variable in the relevant methods.(¶ƒíúøÿÿÿÿ8Ş÷ÓÖä0
+t
+java:S6204,"RReplace this usage of 'Stream.collect(Collectors.toList())' with 'Stream.toList()'(Ü¤÷‰úÿÿÿÿ8°èÚØä0
+O
+java:S1611+"2Remove the parentheses around the "user" parameter(¦ôòÖ8±èÚØä0
+]	java:S125/"<This block of commented-out lines of code should be removed.(Ø÷´úÿÿÿÿ8î¡ÒÖä0

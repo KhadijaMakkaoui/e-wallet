@@ -15,7 +15,7 @@ public class transactionDTO {
     public float amount;
     public String type;
     public Date date;
-    public Long wallet_id;
+    public Long user_id;
 
 
 }
