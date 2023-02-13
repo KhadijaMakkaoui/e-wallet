@@ -32,11 +32,14 @@ public class WalletService {
     }
     public Wallet checkBallance(Long idUser, float amount) {
         Wallet wallet = walletRepository.findByUserId(idUser);
-        if (wallet.getBalance()>=amount) {
-            return wallet;
-        }
-        else {
-            return null;
+        if(wallet!=null){
+            if (wallet.getBalance()>=amount) {
+                return wallet;
+            }else{
+                return null;
+            }
+        }else {
+                return null;
         }
     }
 

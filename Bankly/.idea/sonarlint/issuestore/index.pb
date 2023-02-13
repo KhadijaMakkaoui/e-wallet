@@ -37,10 +37,6 @@ j
 :Wallet/src/main/java/com/example/wallet/dto/WalletDTO.java,7\2\726db363d1dc3a66d206b8556aa44454abe8d7b4
 f
 6User/src/main/java/com/example/user/dto/WalletDto.java,b\c\bc5a6713669537bc407c5e1d89f4b2df895cb3bf
-f
-6User/src/main/java/com/example/user/dto/MapperDTO.java,b\c\bc08895666d87fbca6c935abe286bbd62f527510
-d
-4User/src/main/java/com/example/user/dto/UserDTO.java,e\c\ecd7f9fcc5a14420c012ab9af2219437c2d61a0a
 r
 BUser/src/main/java/com/example/user/controller/UserController.java,b\3\b30577a229417cea9aa874059df756df1445c6db
 l

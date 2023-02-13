@@ -50,9 +50,8 @@ public class transactionService {
 
 
     public transactionDTO creditTransaction(transaction transaction) {
-        //TODO: make wallet ref dynamic
 
-        walletDto result = apiWallet.checkBallance("AA11", transaction.getAmount());
+        walletDto result = apiWallet.checkBallance(transaction.getUser_id(), transaction.getAmount());
 
         if (result!=null) {
             System.out.println("Transaction succeded");

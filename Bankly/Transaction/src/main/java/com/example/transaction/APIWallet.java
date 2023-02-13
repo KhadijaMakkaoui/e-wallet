@@ -8,5 +8,5 @@ import org.springframework.web.bind.annotation.PathVariable;
 @FeignClient(name = "APIWallet", url = "http://localhost:8082")
 public interface APIWallet {
     @GetMapping("/api/v1/wallet/{id_user}/{amount}")
-    public walletDto checkBallance(@PathVariable("id_user") String ref, @PathVariable("amount") float amount);
+    public walletDto checkBallance(@PathVariable("id_user") Long idUser, @PathVariable("amount") float amount);
 }
