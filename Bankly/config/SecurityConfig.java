@@ -1,7 +1,6 @@
 package com.example.user.config;
 
-import com.example.demo.domain.RoleType;
-import com.example.demo.service.UserService;
+import com.example.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -19,7 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 import javax.servlet.Filter;
 
-@EnableWebSecurity //responsible for defining the security settings for the application
+//@EnableWebSecurity //responsible for defining the security settings for the application
 @RequiredArgsConstructor //has final fields or fields annotated with @NonNull
 public class SecurityConfig {
     private final Filter jwtAuthFilter;
@@ -28,32 +27,16 @@ public class SecurityConfig {
     //chain of servlet filters
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        http
-                .csrf()
-                .disable()
-                .authorizeHttpRequests()
-                .antMatchers("/**/auth/**")
-                .permitAll()
-                .antMatchers("/api/v1/products/all").hasAuthority(RoleType.ROLE_USER.name())
-                .antMatchers("/api/v1/products/**").hasAnyAuthority(RoleType.ROLE_ADMIN.name(), RoleType.ROLE_FOURNISSEUR.name())
-                .anyRequest()
-                .authenticated()
-                .and()
-                .sessionManagement()
-                .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
-                .and()
-                .authenticationProvider(authenticationProvider())
-                .addFilterBefore( jwtAuthFilter, UsernamePasswordAuthenticationFilter.class);;
-        return http.build();
+              return http.build();
     }
     //used to authenticate a user based on a user repository
-    @Bean
+    /*@Bean
     public AuthenticationProvider authenticationProvider() {
         final DaoAuthenticationProvider authenticationProvider = new DaoAuthenticationProvider();
         authenticationProvider.setUserDetailsService(userDetailsService());
         authenticationProvider.setPasswordEncoder(passwordEncoder());
         return authenticationProvider;
-    }
+    }*/
     @Bean
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder(10);

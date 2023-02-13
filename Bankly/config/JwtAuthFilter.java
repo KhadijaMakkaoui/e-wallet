@@ -1,6 +1,6 @@
 package com.example.user.config;
 
-import com.example.demo.service.UserService;
+import com.example.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;

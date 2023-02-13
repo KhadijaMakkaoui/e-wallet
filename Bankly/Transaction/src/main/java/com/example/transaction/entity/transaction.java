@@ -20,13 +20,13 @@ public class transaction {
     @NotEmpty
     @Size(min = 3, max = 20)
     private String ref;
-    @NotEmpty
+
     @Column(columnDefinition = "default 0")
     private float amount;
     @NotEmpty
     private String type;
-    @NotEmpty
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date date;
+    private Long wallet_id;
 
 }

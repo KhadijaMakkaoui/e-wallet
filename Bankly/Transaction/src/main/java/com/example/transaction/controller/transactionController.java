@@ -21,7 +21,7 @@ public class transactionController {
     /*@PostMapping("/credit")*/
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    public transactionDTO CreditTransaction(@RequestBody transaction transaction) {
+    public transactionDTO TransactionOperation(@RequestBody transaction transaction) {
         return transactionService.TransactionOperation(transaction);
     }
     //fallback executed when failure

@@ -16,11 +16,12 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 import static java.util.stream.Collectors.toList;
+import com.example.transaction.repository.transactionRepository;
 
 @Service
 public class transactionService {
     @Autowired
-    private com.example.transaction.repository.transactionRepository transactionRepository;
+    private transactionRepository transactionRepository;
     @Autowired
     private MapperDTO mapper;
     @Autowired
@@ -36,25 +37,25 @@ public class transactionService {
                 .collect(toList());
     }
     public transactionDTO TransactionOperation(transaction transaction) {
-        /*if (transaction.getType()=="credit") {*/
-            System.out.println("Transaction credit");
+        if (transaction.getType()=="credit") {
             return creditTransaction(transaction);
-
-       /* }
-        else if (transaction.getType()=="debit") {*/
-        /*    debitTransaction(transaction);
+        }
+       /* else if (transaction.getType()=="debit") {
+            return debitTransaction(transaction);
         }*/
+        else {
+            return null;
+        }
     }
 
 
     public transactionDTO creditTransaction(transaction transaction) {
-
+        //TODO: make wallet ref dynamic
         walletDto result = apiTransaction.checkBallance("AA11", transaction.getAmount());
-/*
-                return result;
-*/
+
         if (result!=null) {
             System.out.println("Transaction succeded");
+            //TODO: update wallet balance
             transaction.setDate(Timestamp.valueOf(LocalDateTime.now()));
             return mapper.mapToDTO(transactionRepository.save(transaction));
         }else {
