@@ -15,16 +15,10 @@ z
 Jdiscovery-server/src/main/java/com/exemple/DiscoveryServerApplication.java,b\8\b85b189d5d134c0d777dc3e12a4aab606d4c86c2
 r
 BUser/src/main/java/com/example/user/repository/UserRepository.java,4\8\483f24c65c517bd47f3e3d74d6166ce7e740516e
-t
-DTransaction/src/main/java/com/example/transaction/dto/walletDto.java,6\b\6b054361f15b5a4cba244457b6d2e6b64234f3d3
-‡
-WTransaction/src/main/java/com/example/transaction/repository/transactionRepository.java,1\7\17e1f4525114a8b3d30a972316d0d7df296335ed
 d
 4User/src/main/java/com/example/user/entity/User.java,1\e\1e6edaa4204045569130c141b83032e066e4c5e3
 u
 Ediscovery-server/src/main/java/com/exemple/config/SecurityConfig.java,1\d\1d2f1b8d3bd86ec0834e3ef2b687839ab993b660
-}
-MTransaction/src/main/java/com/example/transaction/TransactionApplication.java,a\7\a7543a043b51342bb426a1fb9546eb3ab2ca6460
 h
 8User/src/main/java/com/example/user/UserApplication.java,3\c\3c00ab0f8c662055ca9cdde4abc8e8aee4750936
 <

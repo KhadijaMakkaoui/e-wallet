@@ -9,7 +9,7 @@ import java.util.Date;
 @Getter
 @Setter
 @AllArgsConstructor
-public class transactionDTO {
+public class TransactionDTO {
     public Long id;
     public String ref;
     public float amount;

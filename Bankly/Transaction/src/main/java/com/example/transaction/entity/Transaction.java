@@ -13,12 +13,11 @@ import java.util.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-public class transaction {
+public class Transaction {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
     private Long id;
     @NotEmpty
-    @Size(min = 3, max = 20)
     private String ref;
 
     private float amount;

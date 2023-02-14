@@ -4,12 +4,10 @@ import com.example.wallet.dto.MapperDTO;
 import com.example.wallet.entity.Wallet;
 import com.example.wallet.dto.WalletDTO;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 import java.util.UUID;
 
 import static java.util.stream.Collectors.toList;
@@ -17,13 +15,12 @@ import com.example.wallet.repository.WalletRepository;
 
 @Service
 @RequiredArgsConstructor
-@Slf4j
 public class WalletService {
     private final WalletRepository walletRepository;
 
     private final MapperDTO mapper;
 
-@Autowired
+    @Autowired
     private WalletDTO walletdto;
 
     public List<WalletDTO> getAll() {
@@ -54,8 +51,8 @@ public class WalletService {
         walletdto=mapper.mapToDTO(walletRepository.save(wallet));
         return walletdto;
     }
-    public WalletDTO updateBalance(Long id,WalletDTO walletDTO) {
-       Wallet wallet=walletRepository.findById(id).get();
+    public WalletDTO updateBalance(Long idUser,WalletDTO walletDTO) {
+       Wallet wallet=walletRepository.findByUserId(idUser);
         if(wallet!=null){
             wallet.setBalance(walletDTO.getBalance());
            return mapper.mapToDTO(walletRepository.save(wallet));

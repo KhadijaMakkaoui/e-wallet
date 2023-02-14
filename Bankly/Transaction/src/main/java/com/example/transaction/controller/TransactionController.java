@@ -1,7 +1,8 @@
 package com.example.transaction.controller;
 
-import com.example.transaction.dto.transactionDTO;
-import com.example.transaction.entity.transaction;
+import com.example.transaction.dto.TransactionDTO;
+import com.example.transaction.entity.Transaction;
+import com.example.transaction.service.TransactionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -10,18 +11,17 @@ import java.util.List;
 
 @RestController
 @RequestMapping("api/v1/transaction")
-public class transactionController {
+public class TransactionController {
     @Autowired
-    private com.example.transaction.service.transactionService transactionService;
+    private TransactionService transactionService;
 
     @GetMapping
-    public List<transactionDTO> ListTransactions() {
+    public List<TransactionDTO> ListTransactions() {
         return transactionService.getAll();
     }
     /*@PostMapping("/credit")*/
     @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
-    public transactionDTO TransactionOperation(@RequestBody transaction transaction) {
+    public TransactionDTO TransactionOperation(@RequestBody Transaction transaction) {
         return transactionService.TransactionOperation(transaction);
     }
     //fallback executed when failure
