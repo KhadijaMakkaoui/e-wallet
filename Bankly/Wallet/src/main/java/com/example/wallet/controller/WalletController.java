@@ -20,6 +20,10 @@ public class WalletController {
         return walletService.getAll();
 
     }
+    @GetMapping("/{id}")
+    public WalletDTO getWallet(@PathVariable Long id) {
+        return walletService.getWalletdto(id);
+    }
     @GetMapping("/{idUser}/{amount}")
     public Wallet checkBallance(@PathVariable Long idUser, @PathVariable float amount) {
         return walletService.checkBallance(idUser, amount);

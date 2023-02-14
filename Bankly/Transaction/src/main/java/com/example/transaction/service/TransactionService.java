@@ -28,9 +28,11 @@ public class TransactionService {
     @Autowired
     private APIWallet apiWallet;
     WalletDto walletDtoUp;
-   /* @Autowired
-    private WebClient.Builder webClientBuilder;
-*/
+    WalletDto walletDto;
+
+    /* @Autowired
+     private WebClient.Builder webClientBuilder;
+ */
     public List<TransactionDTO> getAll() {
 
         return transactionRepository.findAll()
@@ -38,15 +40,14 @@ public class TransactionService {
                 .map((transaction) -> mapper.mapToDTO(transaction))
                 .collect(toList());
     }
+
     public TransactionDTO TransactionOperation(Transaction transaction) {
-        System.out.println("Transaction type: "+transaction.getType());
+        System.out.println("Transaction type: " + transaction.getType());
         if (transaction.getType().equals("credit")) {
             return creditTransaction(transaction);
-        }
-       /* else if (transaction.getType()=="debit") {
+        } else if (transaction.getType().equals("debit")) {
             return debitTransaction(transaction);
-        }*/
-        else {
+        } else {
             System.out.println("invalid operation");
             return null;
         }
@@ -57,28 +58,54 @@ public class TransactionService {
 
         WalletDto walletDto = apiWallet.checkBallance(transaction.getUser_id(), transaction.getAmount());
 
-        if (walletDto!=null) {
-            transaction.setRef(UUID.randomUUID().toString());
-            transaction.setDate(Timestamp.valueOf(LocalDateTime.now()));
-            if(transactionRepository.save(transaction)!=null){
+        if (walletDto != null) {
+            setDateAndRef(transaction);
+            if (transaction != null) {
                 //update wallet balance
-                walletDto.setBalance(walletDto.getBalance()-transaction.getAmount());
-                walletDtoUp=apiWallet.updateWallet(transaction.getUser_id(),walletDto);
-                if (walletDtoUp!=null)
-                    System.out.println("Wallet updated successfully");
-                else
-                    System.out.println("Wallet not updated");
-            }else{
-                System.out.println("Balance is not valid to credit");
+                walletDto.setBalance(walletDto.getBalance() - transaction.getAmount());
+                return saveTransaction(transaction, walletDto);
+            } else {
+                System.out.println("Transaction failed");
+                return null;
             }
+        } else {
+            System.out.println("Balance is not valid to credit");
+            return null;
+        }
+    }
 
+    public TransactionDTO debitTransaction(Transaction transaction) {
+        setDateAndRef(transaction);
+        WalletDto walletDto = apiWallet.getWallet(transaction.getUser_id());
+
+        if (walletDto != null) {
+            //update wallet balance
+            walletDto.setBalance(walletDto.getBalance() + transaction.getAmount());
+            return saveTransaction(transaction, walletDto);
+        } else {
+            System.out.println("Transaction failed");
+            return null;
+        }
+
+    }
+
+    private TransactionDTO saveTransaction(Transaction transaction, WalletDto walletDto) {
+        walletDtoUp = apiWallet.updateWallet(transaction.getUser_id(), walletDto);
+        if (walletDtoUp != null) {
+            System.out.println("Wallet updated successfully");
             return mapper.mapToDTO(transactionRepository.save(transaction));
-        }else {
+        } else {
             System.out.println("Transaction failed");
             return null;
         }
     }
-   /* private void debitTransaction(Transaction transaction) {
-    }*/
+
+
+    private void setDateAndRef(Transaction transaction) {
+        transaction.setRef(UUID.randomUUID().toString());
+        transaction.setDate(Timestamp.valueOf(LocalDateTime.now()));
+    }
+
+
 
 }

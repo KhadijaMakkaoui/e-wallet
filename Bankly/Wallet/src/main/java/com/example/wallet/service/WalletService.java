@@ -35,10 +35,12 @@ public class WalletService {
             if (wallet.getBalance()>=amount) {
                 return wallet;
             }else{
+                System.out.println("Balance is not valid to credit only debit");
                 return null;
             }
         }else {
-                return null;
+            System.out.println("Wallet not found");
+            return null;
         }
     }
 
@@ -58,6 +60,17 @@ public class WalletService {
            return mapper.mapToDTO(walletRepository.save(wallet));
         }
         else {
+            return null;
+        }
+
+    }
+    public WalletDTO getWalletdto(Long idUser) {
+        Wallet wallet=walletRepository.findByUserId(idUser);
+        if(wallet!=null){
+            return mapper.mapToDTO(wallet);
+        }
+        else {
+            System.out.println("Wallet not found");
             return null;
         }
 

@@ -10,4 +10,6 @@ public interface APIWallet {
     public WalletDto checkBallance(@PathVariable("id_user") Long idUser, @PathVariable("amount") float amount);
     @PostMapping("/api/v1/wallet/update/{id}")
     public WalletDto updateWallet(@PathVariable("id") Long idUser, @RequestBody WalletDto walletDTO) ;
+    @GetMapping("/api/v1/wallet/{id}")
+    public WalletDto getWallet(@PathVariable("id") Long idUser);
 }
