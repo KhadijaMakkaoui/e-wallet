@@ -3,8 +3,6 @@ H
 discovery-server/pom.xml,2\c\2c58c7878e43d126fc56cae853d5b06de57d0b3e
 F
 Transaction/.gitignore,4\8\482567827b3174742402eb03e311ff31f493325a
-B
-docker-compose.yml,3\5\35b8c13cf2eb2a194eada000eb310d65aed53b2a
 D
 config/JwtUtils.java,d\6\d660bc1627d4c38e119995f5415d1ffdcedd4ff4
 J
