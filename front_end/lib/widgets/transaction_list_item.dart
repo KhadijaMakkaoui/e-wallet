@@ -29,13 +29,16 @@ class TransactionListItem extends StatelessWidget {
           color: Colors.grey[600],
         ),
       ),
-      /*trailing: Text(
-        '\$${transaction.amount}',
+      trailing: Text(
+        /*'\$${transaction.amount}'*/
+       transaction.type == 'credit' ? '-122 MAD':'+122 MAD'        /*transaction.amount.toString()*/ ,
+
         style: TextStyle(
           fontWeight: FontWeight.bold,
           fontSize: 16.0,
-        ),
-      ),*/
+          color: transaction.type == 'credit' ? Colors.red : Colors.green,
+      ),
+      ),
     );
   }
 }
