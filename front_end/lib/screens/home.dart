@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:front_end/widgets/transactions_list_view.dart';
+
+import '../models/Transaction.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -7,8 +10,10 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+
   @override
   Widget build(BuildContext context) {
+    List<Transaction> transactionsList = Transaction.ListTransaction();
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -37,10 +42,8 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: FontWeight.w400,
                   ),
                 ),
-
               ],
             ),
-
           ],
         ),
         centerTitle: true,
@@ -48,12 +51,14 @@ class _HomePageState extends State<HomePage> {
         elevation: 0,
       ),
       body: Container(
+        padding: const EdgeInsets.only(top: 20),
+       color: Colors.lightBlue[600],
        child:Column(
          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
-              children: [
-                const Text(
+              children: const [
+                Text(
                   'Balance',
                   style: TextStyle(
                     color: Colors.white,
@@ -61,8 +66,8 @@ class _HomePageState extends State<HomePage> {
                     fontWeight: FontWeight.w300,
                   ),
                 ),
-                const SizedBox(height: 10),
-                const Text(
+                SizedBox(height: 10),
+                Text(
                   '1000 MAD',
                   style: TextStyle(
                     color: Colors.white,
@@ -73,7 +78,7 @@ class _HomePageState extends State<HomePage> {
               ],
 
             ),
-            SizedBox(height: 50),
+            const SizedBox(height: 50),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children:[
@@ -81,7 +86,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     // do something when the text is clicked
                   },
-                  child: Text(
+                  child: const Text(
                     'CREDITER',
                     style: TextStyle(
                       color: Colors.white,
@@ -96,7 +101,7 @@ class _HomePageState extends State<HomePage> {
                   onTap: () {
                     // do something when the text is clicked
                   },
-                  child: Text(
+                  child: const Text(
                     'DEBITER',
                     style: TextStyle(
                       color: Colors.white,
@@ -107,10 +112,55 @@ class _HomePageState extends State<HomePage> {
                 ),
                ]
             ),
+            Expanded(
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+                  margin: const EdgeInsets.only(top: 50),
+                  decoration: const BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(30),
+                      topRight: Radius.circular(30),
 
+                    ),
+                  ) ,
+                  child: Column(
+                    children: [
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          const Text('Transactions Récentes',
+                          style: TextStyle(
+                            fontWeight: FontWeight.bold,
+                          )),
+                          GestureDetector(
+                            onTap: () {
+                              // do something when the text is clicked
+                            },
+                            child: const Text(
+                              'Voir Plus',
+                              style: TextStyle(
+                                color: Colors.blue,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 15,
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      Container(
+                        height: 400,
+                        child:
+                         TransactionListView(transactions:transactionsList),
+                      )
+
+                    ],
+                  ),
+
+                ))
           ],
        ),
-        color: Colors.lightBlue[600],
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
@@ -140,7 +190,8 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
 
-      )
+      ),
+
 
     );
   }
