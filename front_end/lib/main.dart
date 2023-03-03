@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:front_end/screens/home.dart';
+import 'package:front_end/screens/welcome.dart';
 void main() {
   runApp(const MyApp());
 }
@@ -17,9 +18,10 @@ class MyApp extends StatelessWidget {
       ),
     );
     return MaterialApp(
-      initialRoute: '/',
+      initialRoute: '/home',
       routes: {
-        '/': (context) => const HomePage(),
+        '/': (context) => const Welcome(),
+        '/home': (context) => const HomePage(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Bankly',

@@ -1,52 +1,41 @@
-class Transaction{
-  final String title;
-  final String date;
- /* final String amount;*/
-  final String type;
+// To parse this JSON data, do
+//
+//     final transaction = transactionFromJson(jsonString);
 
+import 'dart:convert';
 
+Transaction transactionFromJson(String str) => Transaction.fromJson(json.decode(str));
+
+String transactionToJson(Transaction data) => json.encode(data.toJson());
+
+class Transaction {
   Transaction({
-    required this.title,
-    required this.date,
-    /*required this.amount,*/
-    required this.type,
+    required this.id,
+    required this.amount,
+    required this.createdAt,
+    required this.transactionType,
+    required this.walletId,
   });
-  static  List<Transaction> ListTransaction(){
-  return [
-    Transaction(
-      title: 'Item 1',
-      date: 'This is the first item',
-      type: 'debit',
-    ),
-    Transaction(
-      title: 'Item 2',
-      date: 'This is the second item',
-      type: 'credit',
-    ),
-    Transaction(
-      title: 'Item 3',
-      date: 'This is the third item',
-      type: 'debit',
-    ),
-    Transaction(
-      title: 'Item 4',
-      date: 'This is the fourth item',
-      type: 'credit',
-    ),
-    Transaction(
-      title: 'Item 4',
-      date: 'This is the fourth item',
-      type: 'credit',
-    ),
-    Transaction(
-      title: 'Item 4',
-      date: 'This is the fourth item',
-      type: 'debit',
-    ),
-    Transaction(
-      title: 'Item 4',
-      date: 'This is the fourth item',
-      type: 'credit',
-    ),
-  ];}
+
+  int id;
+  double amount;
+  DateTime createdAt;
+  String transactionType;
+  String walletId;
+
+  factory Transaction.fromJson(Map<String, dynamic> json) => Transaction(
+    id: json["id"],
+    amount: json["amount"]?.toDouble(),
+    createdAt: DateTime.parse(json["createdAt"]),
+    transactionType: json["transactionType"],
+    walletId: json["walletId"],
+  );
+
+  Map<String, dynamic> toJson() => {
+    "id": id,
+    "amount": amount,
+    "createdAt": createdAt.toIso8601String(),
+    "transactionType": transactionType,
+    "walletId": walletId,
+  };
 }

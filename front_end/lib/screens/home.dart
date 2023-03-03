@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:front_end/widgets/transactions_list_view.dart';
 
 import '../models/Transaction.dart';
+import '../services/transaction_service.dart';
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
 
@@ -10,10 +11,29 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Transaction> transactionsList = [];
+  @override
+  void initState() {
+    super.initState();
+    _getTransactions();
+
+  }
+  void _getTransactions() async {
+    var response=await TransactionService().get('/transactions');
+    if(response==null) return;
+    debugPrint('success');
+
+    // parse the response into a list of Transaction objects
+    List<Transaction> transactions = (response as List).map((transaction) => Transaction.fromJson(transaction)).toList();
+
+    // set the transactionsList to the parsed list
+    setState(() {
+      transactionsList = transactions;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
-    List<Transaction> transactionsList = Transaction.ListTransaction();
     return Scaffold(
       appBar: AppBar(
         title: Row(
@@ -52,9 +72,9 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Container(
         padding: const EdgeInsets.only(top: 20),
-       color: Colors.lightBlue[600],
-       child:Column(
-         mainAxisAlignment: MainAxisAlignment.center,
+        color: Colors.lightBlue[600],
+        child:Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Column(
               children: const [
@@ -80,37 +100,37 @@ class _HomePageState extends State<HomePage> {
             ),
             const SizedBox(height: 50),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children:[
-                GestureDetector(
-                  onTap: () {
-                    // do something when the text is clicked
-                  },
-                  child: const Text(
-                    'CREDITER',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children:[
+                  GestureDetector(
+                    onTap: () {
+                      // do something when the text is clicked
+                    },
+                    child: const Text(
+                      'CREDITER',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
                     ),
                   ),
-                ),
 
-                const SizedBox(width: 10),
-                GestureDetector(
-                  onTap: () {
-                    // do something when the text is clicked
-                  },
-                  child: const Text(
-                    'DEBITER',
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 15,
+                  const SizedBox(width: 10),
+                  GestureDetector(
+                    onTap: () {
+                      // do something when the text is clicked
+                    },
+                    child: const Text(
+                      'DEBITER',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 15,
+                      ),
                     ),
                   ),
-                ),
-               ]
+                ]
             ),
             Expanded(
                 child: Container(
@@ -130,9 +150,9 @@ class _HomePageState extends State<HomePage> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           const Text('Transactions Récentes',
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                          )),
+                              style: TextStyle(
+                                fontWeight: FontWeight.bold,
+                              )),
                           GestureDetector(
                             onTap: () {
                               // do something when the text is clicked
@@ -152,7 +172,7 @@ class _HomePageState extends State<HomePage> {
                       Container(
                         height: 400,
                         child:
-                         TransactionListView(transactions:transactionsList),
+                        TransactionListView(transactions:transactionsList),
                       )
 
                     ],
@@ -160,7 +180,7 @@ class _HomePageState extends State<HomePage> {
 
                 ))
           ],
-       ),
+        ),
       ),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: 0,
@@ -195,4 +215,6 @@ class _HomePageState extends State<HomePage> {
 
     );
   }
+
+
 }
